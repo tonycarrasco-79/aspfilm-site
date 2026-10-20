@@ -35,7 +35,7 @@ export function Essentials() {
         <div className="asp-ess__flag">
           <span className="asp-ess__tag">Flagship package</span>
           <h3>One Day, One Show</h3>
-          <p>We spend a day at your business and turn it into a short series plus a month of social video.</p>
+          <p>We spend a day at your business and turn it into a short series plus a month’s worth of social media videos. Same crew, same cameras, same standards as our network work.</p>
           <p className="asp-watch">
             <a href="https://vimeo.com/1121638053" target="_blank" rel="noopener">
               See an example: The SoCal Scene, Rodeo 72 <span aria-hidden="true">↗</span>
