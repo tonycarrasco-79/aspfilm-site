@@ -1,0 +1,353 @@
+/* Anaconda Street token layer (from app/design-brief.md). Sharp corners throughout. */
+:root {
+  --asp-canopy: #0C2014;
+  --asp-under: #15301D;
+  --asp-deep: #081710;
+  --asp-ink: #EEF3E2;
+  --asp-moss: #B4C3A1;
+  --asp-yellow: #F0E020;
+  --asp-scale: #9CBF33;
+  --asp-line: rgba(156, 191, 51, 0.28);
+  --asp-display: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --asp-mono: "Geist Mono", ui-monospace, monospace;
+}
+html { background: var(--asp-canopy); scroll-behavior: smooth; }
+body.asp-body { margin: 0; background: var(--asp-canopy); color: var(--asp-ink); font-family: var(--asp-display); -webkit-font-smoothing: antialiased; }
+.asp-body ::selection { background: var(--asp-yellow); color: var(--asp-canopy); }
+.asp-body a:focus-visible, .asp-body button:focus-visible, .asp-body input:focus-visible, .asp-body select:focus-visible, .asp-body textarea:focus-visible { outline: 2px solid var(--asp-yellow); outline-offset: 3px; }
+.asp-wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px); }
+.asp-h2 { font-family: var(--asp-display); font-weight: 850; font-size: clamp(2.4rem, 5.6vw, 4.75rem); line-height: 0.95; letter-spacing: -0.035em; margin: 0; }
+.asp-eyebrow { font-family: var(--asp-mono); font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--asp-yellow); margin: 0 0 18px; }
+.asp-lede { font-size: 1.1rem; line-height: 1.6; color: var(--asp-moss); max-width: 58ch; margin: 22px 0 0; }
+
+/* Header */
+.asp-header { position: fixed; inset: 0 0 auto 0; z-index: 40; background: linear-gradient(var(--asp-canopy), rgba(12, 32, 20, 0.72) 70%, rgba(12, 32, 20, 0)); }
+.asp-header__row { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 96px; }
+.asp-header__logo { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--asp-ink); }
+.asp-header__logo img { display: block; height: 62px; width: auto; }
+.asp-header__name { font-weight: 850; font-size: 1.15rem; letter-spacing: -0.01em; line-height: 1.05; max-width: 9.5em; }
+.asp-header__links { display: flex; align-items: center; gap: 28px; }
+.asp-navlink { position: relative; font-family: var(--asp-mono); font-size: 0.82rem; letter-spacing: 0.06em; color: var(--asp-ink); text-decoration: none; padding: 6px 0; }
+.asp-navlink::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: var(--asp-scale); transition: right 0.3s ease; }
+.asp-navlink:hover::after { right: 0; }
+@media (max-width: 1100px) { .asp-header__name { display: none; } }
+@media (max-width: 860px) { .asp-navlink { display: none; } .asp-header__row { height: 76px; } .asp-header__logo img { height: 44px; } }
+
+/* Clapper tab CTA (nav) */
+.asp-clapper { position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; background: var(--asp-yellow); color: var(--asp-canopy); font-weight: 750; font-size: 0.95rem; text-decoration: none; }
+.asp-clapper::before { content: ""; position: absolute; left: 0; right: 0; top: -7px; height: 7px; background: repeating-linear-gradient(-45deg, var(--asp-yellow) 0 9px, var(--asp-canopy) 9px 18px); transform-origin: left bottom; transform: rotate(-9deg); transition: transform 0.18s ease; }
+.asp-clapper:hover::before { transform: rotate(-14deg); }
+.asp-clapper:active::before { transform: rotate(0deg); }
+.asp-clapper:active { transform: translateY(1px); }
+
+/* Hero CTAs */
+.asp-hero-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 26px; margin-top: 8px; }
+.asp-viewfinder { position: relative; display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; color: var(--asp-ink); font-weight: 750; font-size: 1.05rem; text-decoration: none; }
+.asp-viewfinder i { position: absolute; width: 14px; height: 14px; border-color: var(--asp-yellow); border-style: solid; transition: all 0.28s cubic-bezier(.2,.8,.2,1); }
+.asp-viewfinder i:nth-child(1) { left: 0; top: 0; border-width: 2px 0 0 2px; }
+.asp-viewfinder i:nth-child(2) { right: 0; top: 0; border-width: 2px 2px 0 0; }
+.asp-viewfinder i:nth-child(3) { left: 0; bottom: 0; border-width: 0 0 2px 2px; }
+.asp-viewfinder i:nth-child(4) { right: 0; bottom: 0; border-width: 0 2px 2px 0; }
+.asp-viewfinder:hover i:nth-child(1) { left: 8px; top: 6px; } .asp-viewfinder:hover i:nth-child(2) { right: 8px; top: 6px; }
+.asp-viewfinder:hover i:nth-child(3) { left: 8px; bottom: 6px; } .asp-viewfinder:hover i:nth-child(4) { right: 8px; bottom: 6px; }
+.asp-viewfinder:hover { color: var(--asp-yellow); }
+.asp-readout { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-family: var(--asp-mono); font-size: 0.9rem; letter-spacing: 0.04em; color: var(--asp-ink); text-decoration: none; }
+.asp-readout svg { color: var(--asp-yellow); }
+.asp-readout span { border-bottom: 1px dashed var(--asp-moss); padding-bottom: 2px; }
+.asp-readout:hover span { border-bottom-color: var(--asp-yellow); color: var(--asp-yellow); }
+
+/* Credits marquee */
+.asp-marquee { border-block: 1px solid var(--asp-line); background: var(--asp-deep); overflow: hidden; padding: 28px 0 34px; }
+.asp-marquee__label { display: block; font-family: var(--asp-mono); font-weight: 400; font-size: 0.78rem; color: var(--asp-moss); letter-spacing: 0.08em; margin: 0 auto 26px; }
+.asp-marquee__track { display: flex; width: max-content; animation: asp-marquee 70s linear infinite; }
+.asp-marquee__track ul { display: flex; align-items: center; gap: clamp(36px, 4.5vw, 64px); list-style: none; margin: 0; padding: 0 clamp(18px, 2.25vw, 32px); }
+.asp-marquee__track li { display: flex; align-items: center; height: 48px; flex: none; }
+.asp-marquee__track img { display: block; max-width: none; object-fit: contain; opacity: 0.78; transition: opacity 0.3s ease, transform 0.3s ease; }
+.asp-marquee__track li:hover img { opacity: 1; transform: translateY(-2px); }
+.asp-marquee:hover .asp-marquee__track { animation-play-state: paused; }
+@keyframes asp-marquee { to { transform: translateX(-50%); } }
+
+/* Audiences bento */
+.asp-audiences { padding: clamp(80px, 10vw, 140px) 0; }
+.asp-bento { display: grid; grid-template-columns: 1.35fr 1fr 1fr; grid-template-rows: 300px 300px; gap: 1px; background: var(--asp-line); border: 1px solid var(--asp-line); margin-top: 56px; }
+.asp-door { position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; color: var(--asp-ink); text-decoration: none; overflow: hidden; background: var(--asp-canopy); isolation: isolate; }
+.asp-door img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; filter: brightness(0.74); transition: filter 0.5s ease, transform 0.8s ease; }
+.asp-door::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(8, 23, 16, 0.92), rgba(8, 23, 16, 0.1) 70%); }
+.asp-door:hover img { filter: saturate(1.1) brightness(0.8); transform: scale(1.04); }
+.asp-door h3 { margin: 0; font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; }
+.asp-door p { margin: 10px 0 0; color: var(--asp-moss); line-height: 1.5; max-width: 42ch; font-size: 0.98rem; }
+.asp-door__vine { display: flex; align-items: center; margin-top: 18px; font-family: var(--asp-mono); font-size: 0.8rem; color: var(--asp-yellow); }
+.asp-door__vine b { display: block; height: 1px; width: 36px; background: var(--asp-scale); margin-right: 10px; transition: width 0.4s cubic-bezier(.2,.8,.2,1); }
+.asp-door:hover .asp-door__vine b { width: 96px; }
+.asp-door--net, .asp-door--brand { grid-row: 1 / 3; }
+.asp-statement { display: flex; flex-direction: column; justify-content: space-between; padding: 28px; background: var(--asp-yellow); color: var(--asp-canopy); }
+.asp-statement p { margin: 0; font-weight: 850; font-size: clamp(1.5rem, 2.4vw, 2.2rem); line-height: 1; letter-spacing: -0.03em; }
+.asp-statement small { font-family: var(--asp-mono); font-size: 0.78rem; line-height: 1.5; }
+.asp-statement a { color: var(--asp-canopy); font-weight: 700; }
+@media (max-width: 960px) {
+  .asp-bento { grid-template-columns: 1fr; grid-template-rows: none; }
+  .asp-door, .asp-statement { min-height: 320px; }
+  .asp-door--net, .asp-door--brand { grid-row: auto; }
+}
+
+/* Work accordion */
+.asp-work { padding: clamp(80px, 10vw, 140px) 0; border-top: 1px solid var(--asp-line); }
+.asp-work__list { list-style: none; margin: 48px 0 0; padding: 0; border-top: 1px solid var(--asp-line); }
+.asp-row { border-bottom: 1px solid var(--asp-line); }
+.asp-row__head { display: grid; grid-template-columns: 56px 1fr auto; align-items: baseline; gap: 20px; width: 100%; padding: 26px 0; background: none; border: 0; color: var(--asp-ink); text-align: left; cursor: pointer; font: inherit; transition: transform 0.35s cubic-bezier(.2,.8,.2,1); }
+.asp-row__idx { font-family: var(--asp-mono); font-size: 0.85rem; color: var(--asp-moss); }
+.asp-row__title { font-weight: 850; font-size: clamp(1.6rem, 4.2vw, 3.6rem); letter-spacing: -0.035em; line-height: 1; }
+.asp-row__meta { font-family: var(--asp-mono); font-size: 0.8rem; color: var(--asp-moss); text-align: right; }
+.asp-row:hover .asp-row__head, .asp-row[data-open="true"] .asp-row__head { transform: skewX(-4deg) translateX(10px); }
+.asp-row[data-open="true"] .asp-row__idx { color: var(--asp-yellow); }
+.asp-row__body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.5s cubic-bezier(.2,.8,.2,1); }
+.asp-row[data-open="true"] .asp-row__body { grid-template-rows: 1fr; }
+.asp-row__inner { overflow: hidden; }
+.asp-row__panel { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 32px; padding: 0 0 32px 76px; }
+.asp-row__panel img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; display: block; }
+.asp-row__panel--poster { grid-template-columns: minmax(0, 220px) minmax(0, 1fr); align-items: start; }
+.asp-row__panel--poster img { aspect-ratio: 2 / 3; }
+.asp-row__panel--round img { aspect-ratio: 1 / 1; object-fit: contain; }
+.asp-work__group { margin: 56px 0 0; font-family: var(--asp-mono); font-weight: 400; font-size: 0.85rem; letter-spacing: 0.06em; color: var(--asp-moss); }
+.asp-work__group + .asp-work__list { margin-top: 18px; }
+.asp-cards { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--asp-line); border: 1px solid var(--asp-line); }
+.asp-card { background: var(--asp-canopy); padding: 24px; display: flex; flex-direction: column; gap: 10px; transition: background 0.3s ease; }
+.asp-card:hover { background: var(--asp-under); }
+.asp-card__media { position: relative; margin: -24px -24px 8px; aspect-ratio: 16 / 10; overflow: hidden; background: var(--asp-deep); }
+.asp-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease, filter 0.5s ease; filter: brightness(0.92); }
+.asp-card__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,32,20,0) 55%, rgba(12,32,20,0.55) 100%); pointer-events: none; }
+.asp-card:hover .asp-card__media img { transform: scale(1.04); filter: brightness(1); }
+@media (prefers-reduced-motion: reduce) { .asp-card__media img { transition: none; } .asp-card:hover .asp-card__media img { transform: none; } }
+.asp-card__kind { font-family: var(--asp-mono); font-size: 0.75rem; color: var(--asp-yellow); letter-spacing: 0.04em; }
+.asp-card h4 { margin: 0; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+.asp-card p { margin: 0; color: var(--asp-moss); line-height: 1.55; font-size: 0.95rem; }
+.asp-row__panel p { margin: 0; line-height: 1.65; color: var(--asp-moss); }
+.asp-row__panel strong { display: block; margin-top: 16px; font-family: var(--asp-mono); font-weight: 400; font-size: 0.8rem; color: var(--asp-ink); line-height: 1.6; }
+@media (max-width: 860px) { .asp-row__head { grid-template-columns: 36px 1fr; } .asp-row__meta { grid-column: 2; text-align: left; } .asp-row__panel, .asp-row__panel--poster { grid-template-columns: 1fr; padding-left: 0; } .asp-row__panel--poster img { max-width: 240px; } }
+
+/* Emmy strip */
+.asp-emmys { position: relative; overflow: hidden; padding: clamp(70px, 9vw, 120px) 0; background: var(--asp-deep); border-block: 1px solid var(--asp-line); }
+.asp-emmys__grid { display: grid; grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 1fr)); align-items: end; }
+.asp-emmys__big { margin-left: -0.06em; }
+.asp-emmys__big b { display: block; font-weight: 900; font-size: clamp(9rem, 24vw, 21rem); line-height: 0.78; letter-spacing: -0.07em; color: var(--asp-yellow); }
+.asp-emmys__big span { display: block; margin-top: 18px; font-family: var(--asp-mono); font-size: 0.85rem; color: var(--asp-ink); max-width: 30ch; line-height: 1.5; }
+.asp-stat { padding: 0 0 6px 26px; border-left: 1px solid var(--asp-line); }
+.asp-stat b { display: block; font-weight: 850; font-size: clamp(2.6rem, 5vw, 4.4rem); letter-spacing: -0.04em; line-height: 1; }
+.asp-stat span { display: block; margin-top: 10px; color: var(--asp-moss); font-size: 0.95rem; line-height: 1.45; max-width: 22ch; }
+@media (max-width: 960px) { .asp-emmys__grid { grid-template-columns: 1fr 1fr; gap: 40px 0; } .asp-emmys__big { grid-column: 1 / -1; } }
+
+/* Services */
+.asp-services { padding: clamp(80px, 10vw, 140px) 0; }
+.asp-services__grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 88px); align-items: start; }
+.asp-services__img { position: sticky; top: 100px; margin: 0; }
+.asp-services__img img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+.asp-svc { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+.asp-svc li { display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 22px 0; border-top: 1px solid var(--asp-line); }
+.asp-svc img { width: 40px; height: 40px; object-fit: contain; }
+.asp-svc h3 { margin: 0; font-size: 1.12rem; font-weight: 750; letter-spacing: -0.01em; }
+.asp-svc p { margin: 6px 0 0; font-size: 0.95rem; line-height: 1.55; color: var(--asp-moss); }
+.asp-facilities { margin-top: 32px; font-family: var(--asp-mono); font-size: 0.82rem; line-height: 1.8; color: var(--asp-ink); }
+@media (max-width: 960px) { .asp-services__grid { grid-template-columns: 1fr; } .asp-services__img { position: static; } .asp-svc { grid-template-columns: 1fr; } }
+
+/* Founders */
+.asp-founders { padding: clamp(80px, 10vw, 140px) 0; border-top: 1px solid var(--asp-line); }
+.asp-founders__pair { display: grid; grid-template-columns: 1fr 1fr; margin-top: 48px; }
+.asp-founder { padding: 8px clamp(20px, 3vw, 44px) 8px 0; }
+.asp-founder + .asp-founder { padding-left: clamp(20px, 3vw, 44px); border-left: 1px solid var(--asp-line); }
+.asp-founder__photo { display: block; width: 100%; max-width: 360px; aspect-ratio: 3 / 4; object-fit: cover; margin-bottom: 24px; }
+.asp-founders__then { margin: 48px 0 0; max-width: 50%; }
+.asp-founders__then img { display: block; width: 100%; height: auto; filter: grayscale(1) contrast(1.05); }
+@media (max-width: 860px) { .asp-founders__then { max-width: 100%; } }
+.asp-founder h3 { margin: 0; font-weight: 850; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.035em; line-height: 1; }
+.asp-founder__role { margin: 12px 0 24px; font-family: var(--asp-mono); font-size: 0.8rem; color: var(--asp-yellow); letter-spacing: 0.04em; }
+.asp-founder ul { list-style: none; margin: 0; padding: 0; }
+.asp-founder li { padding: 12px 0; border-top: 1px solid var(--asp-line); color: var(--asp-moss); line-height: 1.5; }
+.asp-founder li strong { color: var(--asp-ink); font-weight: 650; }
+@media (max-width: 860px) { .asp-founders__pair { grid-template-columns: 1fr; } .asp-founder + .asp-founder { border-left: 0; padding-left: 0; margin-top: 48px; } }
+
+/* Contact */
+.asp-contact { background: var(--asp-yellow); color: var(--asp-canopy); padding: clamp(80px, 10vw, 140px) 0; }
+.asp-contact .asp-eyebrow { color: var(--asp-canopy); }
+.asp-contact__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(32px, 6vw, 88px); }
+.asp-contact__h { margin: 0; font-weight: 900; font-size: clamp(2.8rem, 6.4vw, 5.6rem); line-height: 0.92; letter-spacing: -0.045em; }
+.asp-contact__info { margin-top: 36px; font-family: var(--asp-mono); font-size: 0.92rem; line-height: 1.9; font-style: normal; }
+.asp-contact__info a { color: var(--asp-canopy); }
+.asp-form { background: var(--asp-canopy); color: var(--asp-ink); padding: clamp(24px, 3.4vw, 40px); display: flex; flex-direction: column; gap: 20px; }
+.asp-form fieldset { border: 0; margin: 0; padding: 0; }
+.asp-form legend, .asp-form label > span { display: block; font-family: var(--asp-mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--asp-moss); margin-bottom: 8px; }
+.asp-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.asp-chip { min-height: 44px; padding: 0 16px; background: transparent; color: var(--asp-ink); border: 1px solid var(--asp-line); font: inherit; font-size: 0.92rem; cursor: pointer; transition: background 0.25s ease, color 0.25s ease; }
+.asp-chip[aria-pressed="true"] { background: var(--asp-scale); border-color: var(--asp-scale); color: var(--asp-canopy); font-weight: 700; }
+.asp-form__two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.asp-form input, .asp-form select, .asp-form textarea { width: 100%; box-sizing: border-box; min-height: 48px; padding: 12px 14px; background: var(--asp-under); color: var(--asp-ink); border: 1px solid var(--asp-line); border-radius: 0; font: inherit; }
+.asp-form textarea { min-height: 120px; resize: vertical; }
+.asp-form__err { color: var(--asp-yellow); font-size: 0.85rem; margin: 6px 0 0; }
+.asp-form__note { font-size: 0.82rem; color: var(--asp-moss); margin: 0; }
+.asp-send { position: relative; display: block; width: 100%; min-height: 60px; background: var(--asp-yellow); color: var(--asp-canopy); border: 0; font: inherit; font-weight: 800; font-size: 1.08rem; cursor: pointer; overflow: hidden; }
+.asp-send span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transition: transform 0.35s cubic-bezier(.2,.8,.2,1); }
+.asp-send span + span { transform: translateY(100%); font-family: var(--asp-mono); font-weight: 500; font-size: 0.95rem; }
+.asp-send:hover span:first-child, .asp-send:focus-visible span:first-child { transform: translateY(-100%); }
+.asp-send:hover span + span, .asp-send:focus-visible span + span { transform: translateY(0); }
+.asp-send:active { transform: scale(0.99); }
+@media (max-width: 960px) { .asp-contact__grid, .asp-form__two { grid-template-columns: 1fr; } }
+
+/* Footer */
+.asp-footer { padding: 40px 0 56px; font-family: var(--asp-mono); font-size: 0.8rem; color: var(--asp-moss); }
+.asp-footer__row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
+.asp-footer img { height: 30px; width: auto; display: block; }
+.asp-footer nav a { color: var(--asp-ink); text-decoration: none; margin-left: 20px; }
+.asp-footer nav a:hover { color: var(--asp-yellow); }
+
+/* 404 */
+.asp-404 { min-height: 100dvh; display: grid; place-items: center; text-align: center; padding: 24px; }
+.asp-404 a { color: var(--asp-yellow); font-family: var(--asp-mono); }
+
+@media (prefers-reduced-motion: reduce) {
+  .asp-marquee__track { animation: none; flex-wrap: wrap; width: auto; }
+  .asp-marquee__track ul[aria-hidden="true"] { display: none; }
+  .asp-marquee__track ul { flex-wrap: wrap; row-gap: 24px; }
+  .asp-body *, .asp-body *::before, .asp-body *::after { transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* Hero: big logo + brand name; hide the engine's chapter labels (they overlapped the header) */
+.scroll-scrub__route { display: none !important; }
+.scroll-scrub__chapter:first-child .scroll-scrub__copy { display: flex; flex-direction: column; }
+.scroll-scrub__chapter:first-child .scroll-scrub__title { order: 1; }
+.scroll-scrub__chapter:first-child .scroll-scrub__kicker { order: 2; max-width: none; margin: 1.25rem 0 0; font-size: clamp(0.85rem, 1.2vw, 1.05rem); }
+.scroll-scrub__chapter:first-child .scroll-scrub__body { order: 3; }
+.scroll-scrub__chapter:first-child .scroll-scrub__actions { order: 4; }
+.scroll-scrub__chapter:first-child .scroll-scrub__title { font-weight: 900; font-size: clamp(3rem, 7.4vw, 7.6rem); max-width: 10ch; }
+.scroll-scrub__chapter:first-child .scroll-scrub__copy { width: min(46rem, 60vw); }
+.scroll-scrub__chapter-pin { padding-top: clamp(7rem, 11vw, 9rem); }
+@media (max-width: 860px) { .scroll-scrub__chapter:first-child .scroll-scrub__copy { width: 100%; } }
+
+/* FAQ */
+.asp-faq { padding: clamp(80px, 10vw, 140px) 0; border-top: 1px solid var(--asp-line); }
+.asp-faq__grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 88px); }
+.asp-faq__list { margin: 0; }
+.asp-faq__item { padding: 22px 0; border-top: 1px solid var(--asp-line); }
+.asp-faq__item dt { font-weight: 750; font-size: 1.15rem; letter-spacing: -0.01em; }
+.asp-faq__item dd { margin: 8px 0 0; color: var(--asp-moss); line-height: 1.6; }
+@media (max-width: 960px) { .asp-faq__grid { grid-template-columns: 1fr; } }
+
+/* Watch links on work rows and cards */
+.asp-watch { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 16px 0 0 !important; }
+.asp-watch a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-family: var(--asp-mono); font-size: 0.85rem; color: var(--asp-yellow); text-decoration: none; border-bottom: 1px solid transparent; }
+.asp-watch a:hover { border-bottom-color: var(--asp-yellow); }
+.asp-card .asp-watch { margin-top: auto !important; padding-top: 6px; }
+
+.scroll-scrub__title { white-space: pre-line; }
+
+/* Hero chapter lead-in lines (smaller than the title) */
+.scroll-scrub__title-pre { display: block; white-space: pre-line; font-size: 0.55em; line-height: 1.12; margin-bottom: 0.35em; opacity: 0.88; }
+
+/* ASP Essentials */
+.asp-ess { padding: clamp(80px, 10vw, 140px) 0; border-top: 1px solid var(--asp-line); background: var(--asp-deep); }
+.asp-ess__flag { margin-top: 40px; padding: clamp(24px, 3vw, 36px); border: 1px solid var(--asp-yellow); max-width: 760px; }
+.asp-ess__tag, .asp-tier__len { font-family: var(--asp-mono); font-size: 0.78rem; letter-spacing: 0.05em; color: var(--asp-yellow); text-transform: uppercase; }
+.asp-ess__flag h3 { margin: 10px 0 8px; font-size: clamp(1.8rem, 3.6vw, 2.8rem); font-weight: 850; letter-spacing: -0.03em; line-height: 1.05; }
+.asp-ess__flag p { margin: 0; color: var(--asp-moss); line-height: 1.6; font-size: 1.05rem; }
+.asp-ess__tiers { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--asp-line); border: 1px solid var(--asp-line); }
+.asp-tier { background: var(--asp-canopy); padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; }
+.asp-tier--featured { background: var(--asp-under); box-shadow: inset 0 3px 0 var(--asp-yellow); }
+.asp-tier h4 { margin: 0; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
+.asp-tier ul { list-style: none; margin: 4px 0 0; padding: 0; }
+.asp-tier ul li { padding: 8px 0; border-top: 1px solid var(--asp-line); color: var(--asp-moss); line-height: 1.45; }
+.asp-tier__price { margin: auto 0 0; padding-top: 14px; font-weight: 600; font-family: var(--asp-mono); font-size: 1.1rem; color: var(--asp-ink); }
+.asp-ess__foot { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
+.asp-ess__foot p { margin: 0; max-width: 620px; color: var(--asp-moss); line-height: 1.6; }
+.asp-ess__foot strong { color: var(--asp-ink); }
+.asp-ess__cta { display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; background: var(--asp-yellow); color: var(--asp-canopy); font-weight: 800; text-decoration: none; transition: transform 0.2s ease; }
+.asp-ess__cta:hover { transform: translateY(-2px); }
+.asp-ess__cta:focus-visible, .asp-call__btn:focus-visible { outline: 2px solid var(--asp-ink); outline-offset: 3px; }
+@media (max-width: 860px) { .asp-ess__tiers { grid-template-columns: 1fr; } }
+
+/* NMSDC MBE credential band */
+.asp-mbe { padding: clamp(40px, 6vw, 72px) 0; border-top: 1px solid var(--asp-line); border-bottom: 1px solid var(--asp-line); }
+.asp-mbe__row { display: flex; align-items: center; gap: clamp(20px, 4vw, 48px); }
+.asp-mbe__seal { flex: none; width: 128px; height: 128px; border: 2px solid var(--asp-yellow); outline: 1px solid var(--asp-line); outline-offset: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-align: center; }
+.asp-mbe__seal b { font-size: 1.55rem; font-weight: 900; letter-spacing: 0.02em; color: var(--asp-ink); }
+.asp-mbe__seal span { font-family: var(--asp-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--asp-yellow); }
+.asp-mbe h2 { margin: 0 0 8px; font-family: var(--asp-mono); font-weight: 500; font-size: clamp(0.95rem, 1.6vw, 1.15rem); letter-spacing: 0.08em; text-transform: uppercase; color: var(--asp-yellow); }
+.asp-mbe p { margin: 0; max-width: 640px; font-size: clamp(1.05rem, 1.8vw, 1.3rem); line-height: 1.5; color: var(--asp-ink); }
+@media (max-width: 600px) { .asp-mbe__row { flex-direction: column; align-items: flex-start; } }
+
+/* Contact additions */
+.asp-call { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--asp-line); }
+.asp-call p { margin: 0 0 12px; color: var(--asp-moss); }
+.asp-call__btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border: 1px solid var(--asp-yellow); color: var(--asp-ink); text-decoration: none; font-weight: 700; transition: background 0.25s ease, color 0.25s ease; }
+.asp-call__btn:hover { background: var(--asp-yellow); color: var(--asp-canopy); }
+.asp-send--plain { display: flex; align-items: center; justify-content: center; }
+.asp-send--plain:disabled { opacity: 0.7; cursor: progress; }
+.asp-hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.asp-form--done { justify-content: center; min-height: 320px; outline: none; }
+.asp-form--done h3 { margin: 0; font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+.asp-form--done p:last-child { margin: 0; color: var(--asp-moss); line-height: 1.6; }
+
+.asp-tier__founding { margin: 0; font-family: var(--asp-mono); font-size: 0.78rem; color: var(--asp-yellow); }
+.asp-mbe__seal { width: 168px; height: auto; border: 0; outline: 0; background: var(--asp-ink); padding: 14px; }
+.asp-mbe__seal img { display: block; width: 100%; height: auto; }
+
+/* Hero chapter tags that link out */
+.scroll-scrub__tags li:has(a) { padding: 0; }
+.scroll-scrub__tags a { display: block; padding: 0.45rem 0.7rem; color: inherit; text-decoration: none; transition: background 0.25s ease, color 0.25s ease; }
+.scroll-scrub__tags a:hover, .scroll-scrub__tags a:focus-visible { background: var(--asp-yellow); color: var(--asp-canopy); }
+
+/* Podcasts */
+.asp-pod { padding: clamp(80px, 10vw, 140px) 0; border-top: 1px solid var(--asp-line); }
+.asp-pod__grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 88px); align-items: start; }
+.asp-pod__intro { position: sticky; top: 110px; }
+.asp-pod .asp-lede { margin-bottom: 28px; }
+.asp-pod__shows { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; }
+.asp-pod__card { background: var(--asp-under); border-left: 3px solid var(--asp-yellow); }
+.asp-pod__card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.asp-pod__body { padding: clamp(22px, 3vw, 34px); }
+.asp-pod__card h3 { margin: 0 0 6px; font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 850; letter-spacing: -0.03em; line-height: 1.05; }
+.asp-pod__meta { margin: 0 0 14px; font-family: var(--asp-mono); font-size: 0.82rem; color: var(--asp-moss); }
+.asp-pod__body > p:not(.asp-pod__meta):not(.asp-watch) { margin: 0; color: var(--asp-ink); line-height: 1.6; }
+.asp-pod__body .asp-watch { margin-top: 16px; }
+@media (max-width: 860px) { .asp-pod__grid { grid-template-columns: 1fr; } .asp-pod__intro { position: static; } }
+
+.asp-pod__stills { margin: 20px 0 0; display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 6px; }
+.asp-pod__still { position: relative; overflow: hidden; background: var(--asp-deep); aspect-ratio: 4 / 3; }
+.asp-pod__still:first-child { grid-row: span 2; aspect-ratio: auto; }
+.asp-pod__still img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.asp-pod__still span { position: absolute; left: 0; bottom: 0; padding: 4px 8px; background: rgba(8, 23, 16, 0.78); font-family: var(--asp-mono); font-size: 0.68rem; color: var(--asp-ink); }
+.asp-pod__stills figcaption { grid-column: 1 / -1; margin-top: 4px; font-family: var(--asp-mono); font-size: 0.75rem; color: var(--asp-moss); }
+.asp-pod__control { margin: 6px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.asp-pod__control img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.asp-pod__control figcaption { grid-column: 1 / -1; margin-top: 4px; font-family: var(--asp-mono); font-size: 0.75rem; color: var(--asp-moss); }
+
+/* Card without a still: typographic panel */
+.asp-card__media--type { display: flex; align-items: flex-end; padding: 18px; background: linear-gradient(135deg, var(--asp-under), var(--asp-deep)); }
+.asp-card__media--type span { position: relative; z-index: 1; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900; letter-spacing: -0.03em; line-height: 0.95; color: var(--asp-yellow); text-transform: uppercase; }
+
+/* Reels row under Selected work */
+.asp-reels { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.asp-reels a { display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 18px; border: 1px solid var(--asp-line); color: var(--asp-ink); text-decoration: none; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
+.asp-reels a svg { color: var(--asp-yellow); }
+.asp-reels small { font-family: var(--asp-mono); font-size: 0.72rem; color: var(--asp-moss); }
+.asp-reels a:hover, .asp-reels a:focus-visible { background: var(--asp-yellow); color: var(--asp-canopy); border-color: var(--asp-yellow); }
+.asp-reels a:hover svg, .asp-reels a:hover small, .asp-reels a:focus-visible svg, .asp-reels a:focus-visible small { color: var(--asp-canopy); }
+.asp-pod__still img.asp-pod__bug { position: absolute; inset: auto; top: 8px; left: 8px; width: 40px; height: auto; object-fit: contain; opacity: 0.9; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6)); pointer-events: none; }
+.asp-ess__flag .asp-watch { margin-top: 14px; }
+.asp-tier__example { margin: 6px 0 0; font-size: 0.85rem; }
+
+/* Mobile menu */
+.asp-menu-btn { display: none; width: 44px; height: 44px; padding: 0; border: 1px solid var(--asp-line); background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+.asp-menu-btn span { display: block; width: 20px; height: 2px; background: var(--asp-ink); transition: transform 0.25s ease, opacity 0.25s ease; }
+.asp-header[data-menu="open"] .asp-menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.asp-header[data-menu="open"] .asp-menu-btn span:nth-child(2) { opacity: 0; }
+.asp-header[data-menu="open"] .asp-menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.asp-menu-btn:focus-visible { outline: 2px solid var(--asp-yellow); outline-offset: 2px; }
+.asp-mobile-nav { display: none; }
+@media (max-width: 860px) {
+  .asp-header__links { gap: 12px; }
+  .asp-menu-btn { display: inline-flex; }
+  .asp-mobile-nav:not([hidden]) { display: flex; flex-direction: column; background: var(--asp-canopy); border-top: 1px solid var(--asp-line); border-bottom: 1px solid var(--asp-line); padding: 8px 20px 16px; }
+  .asp-mobile-nav a { display: flex; align-items: center; justify-content: space-between; min-height: 52px; border-bottom: 1px solid var(--asp-line); color: var(--asp-ink); text-decoration: none; font-weight: 700; font-size: 1.1rem; }
+  .asp-mobile-nav a:last-child { border-bottom: 0; }
+  .asp-mobile-nav a:hover, .asp-mobile-nav a:focus-visible { color: var(--asp-yellow); }
+  .asp-header[data-menu="open"] { background: var(--asp-canopy); }
+}
