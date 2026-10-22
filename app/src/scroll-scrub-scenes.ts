@@ -33,7 +33,7 @@ export const scrollScrubScenes: ScrollScrubScene[] = [
     id: "crew",
     label: "The crew",
     title: "30+ years of film and network TV experience in one company.",
-    mediaAlt: "A slow push through dense green foliage",
+    mediaAlt: "A slow push through dense foliage toward a cinema camera in a clearing",
     body: "Founded in 2007, ASP brings together veteran storytellers with experience in every format.",
     tags: [
       { label: "Daytime Emmy winners", href: "https://www.imdb.com/event/ev0000206/2016/1/" },
@@ -51,7 +51,7 @@ export const scrollScrubScenes: ScrollScrubScene[] = [
     label: "Any size",
     titlePre: "Major network.\nGlobal brand.\nLocal nonprofit.",
     title: "We’re built\nfor all of it.",
-    mediaAlt: "A film camera on a tripod in a forest clearing, lit by a yellow key light",
+    mediaAlt: "A Canon cinema camera with a Fujinon zoom lens on a tripod in a sunlit forest clearing",
     body: "Every project gets the same writers, camera operators and editors, and the same care and attention to detail.",
     tags: [
       { label: "Series", href: "https://vimeo.com/1197861324" },
@@ -68,7 +68,7 @@ export const scrollScrubScenes: ScrollScrubScene[] = [
     id: "ready",
     label: "Ready",
     title: "Ready to go.\nNow.",
-    mediaAlt: "The forest canopy reflected in a camera lens",
+    mediaAlt: "The cinema camera turns on its tripod head until its lens faces the viewer",
     body: "Cameras. Lighting. Grip. Edit suites. All in-house, so we can move faster, work smarter and deliver efficiently.",
     clip: "/assets/world/scene-04.mp4",
     mobileClip: "/assets/world/scene-04-mobile.mp4",
